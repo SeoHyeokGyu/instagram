@@ -28,8 +28,13 @@ In the project directory, you can run:
 - react-loading-skeleton
 - tailwind
 
-## Architecture
-
-- components
-- constants
-- context, helpers, lib ( firebase is going to live in here), service ( firebase funtions in here)
+## Folder Architecture
+>- src
+>> - components
+>> - constants
+>> - hooks
+>> - pages
+>> - context, helpers
+>> - lib ( firebase is going to live in here)
+>> - service ( firebase funtions in here)
+>> - styles (talewind's folder(app/tailwind))
