@@ -17,7 +17,7 @@ export function seedDatabase(firebase) {
       fullName: 'Raffaello Sanzio da Urbino',
       emailAddress: 'raphael@sanzio.com',
       following: [],
-      followers: ['NvPY9M9MzFTARQ6M816YAzDJxZ72'],
+      followers: ['HxiV0QrksAgpmb5qmUX1LFeguj62'],
       dateCreated: Date.now()
     },
     {
@@ -26,7 +26,7 @@ export function seedDatabase(firebase) {
       fullName: 'Salvador Dalí',
       emailAddress: 'salvador@dali.com',
       following: [],
-      followers: ['NvPY9M9MzFTARQ6M816YAzDJxZ72'],
+      followers: ['HxiV0QrksAgpmb5qmUX1LFeguj62'],
       dateCreated: Date.now()
     },
     {
@@ -35,17 +35,17 @@ export function seedDatabase(firebase) {
       fullName: 'George Orwell',
       emailAddress: 'george@orwell.com',
       following: [],
-      followers: ['NvPY9M9MzFTARQ6M816YAzDJxZ72'],
+      followers: ['HxiV0QrksAgpmb5qmUX1LFeguj62'],
       dateCreated: Date.now()
     }
   ];
 
-  // eslint-disable-next-line prefer-const
+  // eslint-disable-next-line prefer-const,no-plusplus
   for (let k = 0; k < users.length; k++) {
     firebase.firestore().collection('users').add(users[k]);
   }
 
-  // eslint-disable-next-line prefer-const
+  // eslint-disable-next-line prefer-const,no-plusplus
   for (let i = 1; i <= 5; ++i) {
     firebase
       .firestore()
