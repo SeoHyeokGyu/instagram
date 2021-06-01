@@ -31,14 +31,18 @@ export default function SignUp() {
           displayName: username
         });
 
-        await firebase.firestore().collection('users').add({
-          userId: createdUserResult.user.uid,
-          username: username.toLowerCase(),
-          fullName,
-          emailAddress: emailAddress.toLowerCase(),
-          following: [],
-          dateCreated: Date.now()
-        });
+        await firebase
+          .firestore()
+          .collection('users')
+          .add({
+            userId: createdUserResult.user.uid,
+            username: username.toLowerCase(),
+            fullName,
+            emailAddress: emailAddress.toLowerCase(),
+            following: ['2'],
+            followers: [],
+            dateCreated: Date.now()
+          });
 
         history.push(ROUTES.DASHBOARD);
       } catch (error) {
@@ -48,6 +52,7 @@ export default function SignUp() {
         setError(error.message);
       }
     } else {
+      setUsername('');
       setError('That username is already taken, please try another');
     }
   };
@@ -70,13 +75,14 @@ export default function SignUp() {
           <h1 className="flex justify-center w-full">
             <img src="/images/logo.png" alt="Instagram" className="mt-2 w-6/12 mb-4" />
           </h1>
+
           {error && <p className="mb-4 text-xs text-red-primary">{error}</p>}
 
           <form onSubmit={handleSignup} method="POST">
             <input
-              area-label="Enter your fullname"
+              area-label="Enter your full name"
               type="text"
-              placeholder="fullname"
+              placeholder="full name"
               className="text-sm text-gray-base w-full mr-3 py-5 px-4 h-2 border-gray-primary rounded mb-2"
               onChange={({ target }) => setFullName(target.value)}
               value={fullName || ''}

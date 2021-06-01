@@ -23,7 +23,6 @@ export async function getUserByUsername(username) {
   }));
 }
 
-// get user from the firestore where userId === userId (passed from the auth)
 export async function getUserByUserId(userId) {
   const result = await firebase.firestore().collection('users').where('userId', '==', userId).get();
   const user = result.docs.map((item) => ({
@@ -34,7 +33,6 @@ export async function getUserByUserId(userId) {
   return user;
 }
 
-// check all conditions before limit results
 export async function getSuggestedProfiles(userId, following) {
   let query = firebase.firestore().collection('users');
 
@@ -103,7 +101,9 @@ export async function getPhotos(userId, following) {
       if (photo.likes.includes(userId)) {
         userLikedPhoto = true;
       }
+
       const user = await getUserByUserId(photo.userId);
+
       const { username } = user[0];
       return { username, ...photo, userLikedPhoto };
     })

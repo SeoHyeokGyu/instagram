@@ -1,7 +1,7 @@
 import React, { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import * as ROUTES from './constants/routes';
-import useAuthListener from './hooks/user-auth-listener';
+import useAuthListener from './hooks/use-auth-listener';
 import UserContext from './context/user';
 import ProtectedRoute from './helpers/protected-route';
 
@@ -12,7 +12,7 @@ const Dashboard = lazy(() => import('./pages/dashboard'));
 
 export default function App() {
   const { user } = useAuthListener();
-
+  console.log(user);
   return (
     <UserContext.Provider value={{ user }}>
       <Router>
@@ -22,7 +22,7 @@ export default function App() {
             <Route path={ROUTES.SIGN_UP} component={SignUp} />
             <ProtectedRoute user={user} path={ROUTES.DASHBOARD} exact>
               <Dashboard />
-            </ProtectedRoute>{' '}
+            </ProtectedRoute>
             <Route component={NotFound} />
           </Switch>
         </Suspense>
