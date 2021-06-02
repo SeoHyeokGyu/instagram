@@ -4,12 +4,12 @@ import * as ROUTES from './constants/routes';
 import useAuthListener from './hooks/use-auth-listener';
 import UserContext from './context/user';
 import ProtectedRoute from './helpers/protected-route';
-import Profile from './components/profile';
 
 const Login = lazy(() => import('./pages/login'));
 const SignUp = lazy(() => import('./pages/sign-up'));
 const NotFound = lazy(() => import('./pages/not-found'));
 const Dashboard = lazy(() => import('./pages/dashboard'));
+const Profile = lazy(() => import('./pages/profile'));
 
 export default function App() {
   const { user } = useAuthListener();
