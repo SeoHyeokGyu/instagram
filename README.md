@@ -1,10 +1,8 @@
 # Getting Started Instagram Clone
 
-[Link](https://instagram-seohyeokgyu.vercel.app/login).
+##Link
 
-## Available Scripts
-
-In the project directory, you can run:
+https://instagram-seohyeokgyu.vercel.app/login
 
 ### `yarn start`
 
